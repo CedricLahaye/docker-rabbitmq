@@ -92,6 +92,8 @@ RUN set -eux; \
 COPY --link  . ./
 RUN rm -Rf docker/
 
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
 RUN set -eux; \
 	mkdir -p var/cache var/log; \
     if [ -f composer.json ]; then \
