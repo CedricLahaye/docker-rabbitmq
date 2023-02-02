@@ -94,8 +94,6 @@ RUN rm -Rf docker/
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN composer require messenger
-RUN composer require ext-amqp
-RUN composer require symfony/amqp-messenger
 
 RUN set -eux; \
 	mkdir -p var/cache var/log; \
