@@ -17,8 +17,7 @@ services:
       retries: 3
       start_period: 30s
     environment:
-      # Run "composer require symfony/orm-pack" to install and configure Doctrine ORM
-      DATABASE_URL: mysql://symfony:symfony@127.0.0.1:3306/symfony_docker?serverVersion=8.0
+      DATABASE_URL: mysql://root:secret@database:3306/symfony_docker?serverVersion=8.0
       
   database:
     container_name: database
@@ -67,8 +66,9 @@ services:
 ###> symfony/mercure-bundle ###
 ###< symfony/mercure-bundle ###
   rabbitmq:
+    container_name: rabbitmq
     image: rabbitmq:3.7-management
-    ports: [5672, 15672]
+    ports: [ "5672", "15672" ]
     
 volumes:
   php_socket:
